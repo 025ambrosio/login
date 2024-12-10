@@ -25,7 +25,7 @@
                 hideLoading();  
 
                 if (user) {
-                    window.location.href = "../../../home.html"; 
+                    window.location.href = "../../../home/home.html"; 
                 }
             });
 
@@ -73,7 +73,7 @@
 
                 firebase.auth().createUserWithEmailAndPassword(email, password)
                     .then(() => {
-                        window.location.href = "../../../home.html"; 
+                        window.location.href = "../../../home/home.html"; 
                     })
                     .catch(error => {
                         alert(getErrorMessage(error));
