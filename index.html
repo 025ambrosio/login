@@ -1,44 +1,80 @@
-<!doctype html>
-<html lang="pt-BR">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Login</title>
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Register</title>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
 </head>
-
 <body>
-    <div class="form-container">
-        <h1>AconselhaMe</h1>
-        <form id="login-form">
-            <div class="form-field">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="onChangeEmail()" />
-                <div class="error" id="email-required-error">Email é obrigatório</div>
-                <div class="error" id="email-invalid-error">Email é inválido</div>
-            </div>
-            <div class="form-field">
-                <label for="password">Senha</label>
-                <input type="password" name="password" id="password" placeholder="Senha" onchange="onChangePassword()" />
-                <div class="error" id="password-required-error">Senha é obrigatória</div>
-            </div>
-            <div>
-                <button type="button" class="solid" id="login-button" disabled onclick="login()">Entrar</button>
-            </div>
-            <div>
-                <button type="button" class="clear" onclick="redirectToRegisterPage()">Registrar</button>
-            </div>
-            <div>
-                <button type="button" class="clear" id="recover-password-button" onclick="recoverPassword()">Recuperar Senha</button>
-            </div>
+  <div class="body">
+    <div class="veen">
+      <div class="login-btn splits">
+        <p>Já é um usuário?</p>
+        <button class="active" id="show-login">Login</button>
+      </div>
+      <div class="rgstr-btn splits">
+        <p>Nao tem uma conta?</p>
+        <button id="show-register">Registrar</button>
+      </div>
+      <div class="wrapper">
+        <!-- Formulário de Login -->
+        <form id="login" tabindex="500">
+          <h3>Login</h3>
+          <div class="mail">
+            <!-- Campo para Email ou Nome de Usuário -->
+            <input type="text" id="login-email-username" name="email-username" required>
+            <label>Email ou Nome de Usuário</label>
+          </div>
+          <div class="passwd">
+            <input type="password" id="login-password" name="password" required>
+            <label>Senha</label>
+          </div>
+          <div class="submit">
+            <button type="submit" class="dark">Login</button>
+          </div>
         </form>
-    </div>
+        
+        <!-- Formulário de Registro -->
+        <form id="register" tabindex="502">
+          <h3>Registrar</h3>
+          <div class="name">
+            <input type="text" id="register-name" name="fullname" required>
+            <label>Nome Completo</label>
+          </div>
+          <div class="mail">
+            <input type="email" id="register-email" name="email" required>
+            <label>Email</label>
+          </div>
+          <div class="uid">
+            <input type="text" id="register-username" name="username" required>
+            <label>Nome de Usuario</label>
+          </div>
+          <div class="passwd">
+            <input type="password" id="register-password" name="password" required>
+            <label>Senha</label>
+          </div>
+          <div class="submit">
+            <button type="submit" class="dark">Registrar</button>
+          </div>
+        </form>
+      </div>
+    </div>  
+  </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
-    <script src="firebase-init.js"></script>
-    <script src="index.js"></script>
+  <!-- Firebase SDK -->
+	<script type="module" src="firebase-init.js"></script>
+	<script type="module" src="script.js"></script>
+
 </body>
-
 </html>
